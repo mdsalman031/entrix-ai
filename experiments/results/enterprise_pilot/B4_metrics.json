@@ -1,0 +1,23 @@
+{
+  "baseline": "B4",
+  "total_questions": 20,
+  "answered_count": 10,
+  "abstained_count": 10,
+  "abstention_precision": 0.9,
+  "abstention_recall": 0.6,
+  "answer_coverage": 0.5,
+  "authorized_recall": 0.96,
+  "citation_validity": 1.0,
+  "citation_validity_denominator": 10,
+  "leakage_count": 0,
+  "retry_count": 13,
+  "mean_latency_ms": 196.9445,
+  "scenario_counts": {
+    "authorized_supported": 5,
+    "unauthorized_supported": 5,
+    "absent": 5,
+    "incomplete_or_conflicting": 5
+  },
+  "sufficiency_provider": "mock",
+  "real_llm_provider": false
+}

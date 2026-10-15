@@ -8,6 +8,7 @@ from app.models import Organization, User
 from app.retrieval import RetrievalEngine
 from app.schemas import ActionStatus
 from app.security import hash_password
+from app.sufficiency import EvidenceSufficiencyController, HeuristicEstimator
 
 
 async def create_user(db, organization: Organization, username: str, role: str) -> User:
@@ -53,9 +54,14 @@ async def test_retrieval_never_exposes_other_tenant_or_role_restricted_text(db):
     await db.commit()
 
     acme_results = await engine.search("forecast 4.2 million", viewer, db)
+    controller = EvidenceSufficiencyController(HeuristicEstimator())
+    assessment = await controller.evaluate("forecast 4.2 million", acme_results)
+    retry_query = controller.generate_retry_query("forecast 4.2 million", assessment)
+    retry_results = await engine.search(retry_query, viewer, db) if retry_query else []
     cross_tenant_results = await engine.search("Acme forecast", globex_editor, db)
 
     assert acme_results == []
+    assert retry_results == []
     assert all(item.document_id != restricted.id for item in cross_tenant_results)
     assert "RESTRICTED_SENTINEL" not in " ".join(
         item.text for item in acme_results + cross_tenant_results
