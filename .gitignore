@@ -46,6 +46,10 @@ experiments/results/*.json
 experiments/results/*.csv
 experiments/results/*.png
 
+data/enterprise_rag_bench/raw/
+data/enterprise_rag_bench/processed/
+external/EnterpriseRAG-Bench/
+
 # Alembic
 backend/alembic/versions/__pycache__/
 
