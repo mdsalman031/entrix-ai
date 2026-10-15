@@ -1,0 +1,8 @@
+{
+  "dataset": "synthetic software-validation only",
+  "seed": 7,
+  "retrieval_limit": 5,
+  "baselines": ["B1", "B2", "B3", "B4"],
+  "retry_budget": 1,
+  "note": "Not a generalization or performance benchmark."
+}

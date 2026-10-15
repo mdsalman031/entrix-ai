@@ -1,0 +1,14 @@
+{
+  "baseline": "B4",
+  "total_queries": 10,
+  "answered_count": 6,
+  "abstained_count": 4,
+  "error_count": 0,
+  "mean_latency_ms": 0.02,
+  "abstention_precision": 1.0,
+  "abstention_recall": 1.0,
+  "answer_coverage": 0.6,
+  "mean_authorized_recall": null,
+  "mean_sufficiency_score": 0.523,
+  "citation_validity_rate": null
+}

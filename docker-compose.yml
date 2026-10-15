@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: entrix
+      POSTGRES_USER: entrix
+      POSTGRES_PASSWORD: change-me-local-only
+    ports: ["5432:5432"]
+  qdrant:
+    image: qdrant/qdrant:v1.12.5
+    ports: ["6333:6333"]
